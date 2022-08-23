@@ -1,0 +1,5 @@
+.misto {
+  background: -webkit-gradient(linear, left top, right top, color-stop(-1.25%, #E8F9FF), color-stop(19.32%, #ECF9FE), to(#FFFBE5));
+  background: -o-linear-gradient(left, #E8F9FF -1.25%, #ECF9FE 19.32%, #FFFBE5 100%);
+  background: linear-gradient(90deg, #E8F9FF -1.25%, #ECF9FE 19.32%, #FFFBE5 100%);
+}
