@@ -1005,8 +1005,8 @@ main {
 }
 
 .main-slider__show-super-slider img {
-  height: 42;
-  width: 42;
+  height: 42px;
+  width: 42px;
 }
 
 .main-slider__links {
@@ -1408,6 +1408,8 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .super-slider_visible_false {
@@ -1541,6 +1543,7 @@ main {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  z-index: 10000000000000000000000000000000;
 }
 
 .super-slider__close img {
@@ -2919,6 +2922,16 @@ main {
     grid-template-columns: auto;
   }
 
+  .main-slider__show-super-slider {
+    top: 35px;
+    left: 70px;
+  }
+
+  .main-slider__show-super-slider img {
+    height: 30px;
+    width: 30px;
+  }
+
   .main-slider__links {
     -webkit-box-pack: start !important;
         -ms-flex-pack: start !important;
@@ -2982,10 +2995,6 @@ main {
   }
 
   .link-to-map_desktop {
-    display: none;
-  }
-
-  .main-slider__show-super-slider {
     display: none;
   }
 
@@ -3055,15 +3064,15 @@ main {
   }
 
   .main-slider .swiper-slide img {
-    width: 40px !important;
-    height: 40px !important;
+    width: 50px !important;
+    height: 50px !important;
   }
 
   .main-slider .slider-wrapper {
     overflow: hidden;
     width: 100%;
-    max-width: 280px;
-    min-height: 200px;
+    max-width: 308px;
+    min-height: 256px;
     margin: 20px auto;
   }
 
@@ -3136,6 +3145,19 @@ main {
         -ms-transform: none !important;
             transform: none !important;
     z-index: 777;
+  }
+}
+
+@media (max-width: 630px) {
+  .main-slider__show-super-slider {
+    top: 40px !important;
+    right: calc(50% - 15px - 90px) !important;
+    left: auto;
+  }
+
+  .main-slider__show-super-slider img {
+    height: 30px;
+    width: 30px;
   }
 }
 
@@ -3290,6 +3312,28 @@ main {
   .super-slider .slider-wrapper {
     width: 90vh;
     height: 90vh;
+  }
+
+  .super-slider__close {
+    top: 20px;
+    right: 20px;
+  }
+
+  .super-slider .swiper-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .super-slider .swiper-slide img {
+    width: 100%;
+    height: auto;
   }
 }
 
