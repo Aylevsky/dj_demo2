@@ -288,41 +288,6 @@
   <link rel="stylesheet" href="./vendor/swiper/swiper-bundle.min.css">
   <script src="./vendor/swiper/swiper-bundle.min.js"></script>
   <script src="./bundles/app.min.js"></script>
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      watchSlidesProgress: true,
-      allowTouchMove: true,
-      breakpoints: {
-        0: {
-          direction: "horizontal",
-          spaceBetween: 30,
-          slidesPerView: 2,
-        },
-        530: {
-          direction: "horizontal",
-          spaceBetween: 40,
-          slidesPerView: 2,
-        },
-        900: {
-          spaceBetween: 24,
-          direction: "vertical",
-          slidesPerView: 3,
-        }
-      }
-    });
-    var swiper2 = new Swiper(".zvity-slider__big-slider", {
-      spaceBetween: 10,
-      allowTouchMove: false,
-      thumbs: {
-        swiper: swiper,
-      },
-      navigation: {
-        nextEl: "#swiper-button-next",
-        prevEl: "#swiper-button-prev",
-      },
-      autoHeight: true,
-    });
-  </script>
 </body>
 
 </html>
