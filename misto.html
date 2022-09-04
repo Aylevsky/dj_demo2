@@ -132,7 +132,8 @@
           <div class="main-slider__link main-slider__link_1" @click="viewPage('photos')"
             :class="selectedPage('photos')"><img src="./images/blocks/main-slider/1.svg" alt="">Фотографії</div>
           <div class="main-slider__link main-slider__link_2" @click="viewPage('video')" :class="selectedPage('video')">
-            <img src="./images/blocks/main-slider/2.svg" alt="">Відеоархів</div>
+            <img src="./images/blocks/main-slider/2.svg" alt="">Відеоархів
+          </div>
           <div class="main-slider__link main-slider__link_3" @click="viewPage('art')" :class="selectedPage('art')"><img
               src="./images/blocks/main-slider/3.svg" alt="">Арт-ілюстрація</div>
         </div>
@@ -339,12 +340,22 @@
         </div>
       </div>
       <div class="modal" v-if="video" @click="bigView = false">
-        <video src="./video/vid.mp4" controls="controls" autoplay @click.stop=""> </video>
+        <!-- Гитхаб библиотеки для видео: https://github.com/sampotts/plyr-->
+        <div class="plyr__video-embed" id="player" @click.stop="">
+          <iframe
+            src="https://www.youtube.com/embed/bTqVqk7FSmY?origin=https://plyr.io&amp;amp;iv_load_policy=3&amp;amp;modestbranding=1&amp;amp;playsinline=1&amp;amp;showinfo=0&amp;amp;rel=0&amp;amp;enablejsapi=1"
+            allowfullscreen allowtransparency allow="autoplay"></iframe>
+        </div>
+        <!--
+          <video id="player" playsinline controls data-poster="/path/to/poster.jpg">
+            <source src="./video/vid.mp4" type="video/mp4" />
+          </video>
+          -->
         <div class="modal__close" @click="bigView = false"><img src="./images/blocks/super-slider/close.svg" alt="">
         </div>
       </div>
     </transition>
-    <!-- !!! Содержимое как в первом слайдере-->
+    <!-- !!! Содержимое как в первом слайдере, но можно не обрезать фото до квадрата-->
     <div class="super-slider">
       <div class="super-slider__close"> <img src="./images/blocks/super-slider/close.svg" alt=""></div>
       <div class="slider-wrapper">
@@ -409,10 +420,10 @@
       </div>
     </div>
   </footer>
-  <script src="./vendor/vue/vue.min.js?_v=20220823213013"> </script>
-  <link rel="stylesheet" href="./vendor/swiper/swiper-bundle.min.css?_v=20220823213013">
-  <script src="./vendor/swiper/swiper-bundle.min.js?_v=20220823213013"></script>
-  <script src="./bundles/app.min.js?_v=20220823213013"></script>
+  <script src="./vendor/vue/vue.min.js"> </script>
+  <link rel="stylesheet" href="./vendor/swiper/swiper-bundle.min.css">
+  <script src="./vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="./bundles/app.min.js"></script>
 </body>
 
 </html>
