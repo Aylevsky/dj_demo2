@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+  <link rel="stylesheet" href="./bundles/main.min.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Рівне</title>
+</head>
+
+<body>
+  <main class="misto" id="misto">
+    <header class="header">
+      <div class="container header__wrapper">
+        <div class="header__left"><a class="header__logo" href="#">
+            <picture>
+              <source srcset="./images/logo.webp" type="image/webp"><img src="./images/logo.png" alt="Logo"
+                loading="lazy">
+            </picture>
+          </a>
+          <div class="date-button header__date-button"> <b>25 СЕРПНЯ, КИЇВ</b><span>Експоцентр, пр. Глушкова 1,
+              12:00</span></div>
+        </div>
+        <div class="header__right">
+          <div class="header__langs"> <a class="header__lang" href="#"><b>UK</b></a><a class="header__lang"
+              href="#">EN</a></div>
+          <div class="header__v-line"></div><a class="button" href="#">ДОПОМОГТИ ЗАРАЗ
+            <div class="button__bg">
+              <div></div>
+            </div>
+          </a>
+        </div>
+        <div class="header__mobile-bottom"> <a class="link-to-map link-to-map_mobile" href="index.html#map"><img
+              src="./images/arrow.svg" alt="Arrow">Повернутися до карти</a>
+          <div class="date-button"><b>25 СЕРПНЯ, КИЇВ</b><span>Експоцентр, пр. Глушкова 1, 12:00</span></div>
+        </div>
+      </div>
+    </header>
+    <div class="container"><a class="link-to-map link-to-map_desktop" href="index.html#map"><img
+          src="./images/arrow.svg" alt="Arrow">Повернутися до карти</a></div>
+    <div class="container">
+      <h1 class="h1">Рівне</h1>
+    </div>
+    <div class="container misto-grid">
+      <!-- !!! Все фото в слайдере должны быть строго квадратные-->
+      <!-- Очень желательно что бы их было больше 5.-->
+      <!-- Например, если только 2 изображения, то лучше отобразить их 3 раза (будет 6 изображений)-->
+      <!-- Слайдер безконечный, так что без разницы. -->
+      <div class="main-slider">
+        <div class="main-slider__show-super-slider" v-show="view == 'photos'"> <img
+            src="./images/blocks/main-slider/icon.svg" alt=""></div>
+        <div class="slider-wrapper">
+          <div class="swiper main-slider__slider" v-show="view == 'photos'">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./images/blocks/main-slider/img.webp" type="image/webp"><img
+                    src="./images/blocks/main-slider/img.png" alt="">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./images/blocks/main-slider/img-2.webp" type="image/webp"><img
+                    src="./images/blocks/main-slider/img-2.jpeg" alt="">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./images/blocks/main-slider/img-3.webp" type="image/webp"><img
+                    src="./images/blocks/main-slider/img-3.jpg" alt="">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./images/blocks/main-slider/img-4.webp" type="image/webp"><img
+                    src="./images/blocks/main-slider/img-4.jpg" alt="">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./images/blocks/main-slider/img.webp" type="image/webp"><img
+                    src="./images/blocks/main-slider/img.png" alt="">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./images/blocks/main-slider/img-2.webp" type="image/webp"><img
+                    src="./images/blocks/main-slider/img-2.jpeg" alt="">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./images/blocks/main-slider/img-3.webp" type="image/webp"><img
+                    src="./images/blocks/main-slider/img-3.jpg" alt="">
+                </picture>
+              </div>
+            </div>
+            <div class="swiper-button-next main-slider__next"></div>
+            <div class="swiper-button-prev main-slider__prev"></div>
+          </div>
+          <!-- Превию для видео-->
+          <div class="main-slider__video-prev" v-if="view == 'video'" @click="bigView = true">
+            <picture>
+              <source srcset="./images/blocks/modal/video.webp, " type="image/webp"><img
+                src="./images/blocks/modal/video.png" alt="" srcset="">
+            </picture>
+            <div class="main-slider__video-hover">
+              <svg width="36" height="45" viewBox="0 0 36 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1 41.3295V3.6705C1 1.26141 3.69626 -0.165048 5.68788 1.19036L33.3557 20.0199C35.1052 21.2105 35.1052 23.7895 33.3557 24.9801L5.68787 43.8096C3.69625 45.1651 1 43.7386 1 41.3295Z"
+                  fill="white" stroke="white" />
+              </svg>
+            </div>
+          </div>
+          <!-- Превью для арта-->
+          <div class="main-slider__art" v-if="view == 'art'" @click="bigView = true">
+            <picture>
+              <source srcset="./images/blocks/modal/art-wrap.webp, " type="image/webp"><img
+                src="./images/blocks/modal/art-wrap.png" alt="" srcset="">
+            </picture>
+            <div class="main-slider__art-hover">
+              <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1.61291 0.000686671C1.14646 0.00270572 0.702225 0.204623 0.395269 0.555952C0.0883392 0.909306 -0.048974 1.37774 0.0156428 1.84016V9.70082C0.0156428 10.5933 0.738524 11.3162 1.63106 11.3162C2.52159 11.3162 3.24447 10.5933 3.24649 9.70082V5.52517L13.4074 15.6856C13.7002 16.0268 14.1202 16.2307 14.5705 16.2489C15.0187 16.265 15.4549 16.0954 15.7739 15.7764C16.091 15.4594 16.2626 15.0233 16.2444 14.573C16.2283 14.1227 16.0243 13.7007 15.6831 13.4099L5.52791 3.24334H9.70174H9.69972C10.1278 3.24334 10.5397 3.07372 10.8426 2.76883C11.1455 2.46595 11.3151 2.05606 11.3151 1.62801C11.3151 1.19792 11.1455 0.788029 10.8426 0.485171C10.5397 0.180277 10.1278 0.0106633 9.69972 0.0106633H1.80251C1.73991 0.00460561 1.67529 0.000567503 1.61269 0.00258655L1.61291 0.000686671ZM40.3267 0.000686671C40.2863 0.00270572 40.2459 0.00674447 40.2075 0.0107826H32.3C31.4074 0.0107826 30.6846 0.73363 30.6846 1.62613C30.6846 2.51862 31.4074 3.24349 32.3 3.24349H36.4738L26.3207 13.4101V13.4081C25.9774 13.7008 25.7735 14.1228 25.7573 14.5731C25.7392 15.0214 25.9108 15.4595 26.2278 15.7765C26.5469 16.0956 26.983 16.2652 27.4313 16.249C27.8816 16.2309 28.3036 16.0269 28.5964 15.6857L38.7573 5.52531V9.70096C38.7472 10.1351 38.9128 10.5551 39.2157 10.866C39.5206 11.177 39.9366 11.3506 40.3707 11.3506C40.8049 11.3506 41.2208 11.177 41.5237 10.866C41.8287 10.5551 41.9942 10.1351 41.9841 9.70096V1.84238C42.0508 1.36989 41.9054 0.891367 41.5863 0.533975C41.2653 0.178599 40.8049 -0.0152417 40.3263 0.00093759L40.3267 0.000686671ZM20.9721 16.136C20.544 16.1441 20.1361 16.3218 19.8373 16.6307C19.5405 16.9397 19.3789 17.3536 19.387 17.7817V19.391H17.7796C17.7231 19.3869 17.6666 19.3869 17.612 19.391C16.7357 19.4556 16.0713 20.2087 16.1158 21.0871C16.1622 21.9654 16.9013 22.6459 17.7797 22.6196H19.387V24.2269C19.4052 25.1052 20.1221 25.8079 21.0004 25.8079C21.8768 25.8079 22.5936 25.1052 22.6138 24.2269V22.6196H24.2212C24.6553 22.6297 25.0753 22.4641 25.3863 22.1592C25.6953 21.8564 25.871 21.4404 25.871 21.0043C25.871 20.5701 25.6953 20.1542 25.3863 19.8513C25.0754 19.5464 24.6553 19.3808 24.2212 19.3909H22.6138V17.7816C22.6219 17.3435 22.4523 16.9214 22.1434 16.6105C21.8324 16.2996 21.4103 16.1279 20.9722 16.136L20.9721 16.136ZM27.44 25.826C26.7817 25.826 26.188 26.2258 25.9417 26.8376C25.6974 27.4494 25.8468 28.1481 26.3214 28.6044L36.4724 38.771H32.2986C31.8644 38.7609 31.4464 38.9265 31.1355 39.2294C30.8245 39.5343 30.6488 39.9502 30.6488 40.3844C30.6488 40.8185 30.8245 41.2344 31.1355 41.5393C31.4464 41.8422 31.8644 42.0078 32.2986 41.9997H40.3653C40.7954 42.0017 41.2074 41.8301 41.5123 41.5272C41.8172 41.2223 41.9868 40.8084 41.9848 40.3783V32.3098C41.9929 31.8697 41.8233 31.4476 41.5123 31.1367C41.2013 30.8258 40.7793 30.6541 40.3391 30.6642C39.911 30.6723 39.5051 30.85 39.2083 31.1589C38.9115 31.4679 38.75 31.8818 38.758 32.3099V36.4855L28.5972 26.3293V26.3273C28.2943 26.0102 27.8763 25.8305 27.4401 25.8265L27.44 25.826ZM14.5146 25.8382C14.0966 25.8523 13.6988 26.028 13.408 26.3288L3.24715 36.4851V32.3094C3.25522 31.8733 3.0856 31.4512 2.77867 31.1403C2.46972 30.8314 2.04969 30.6577 1.61356 30.6638C1.18345 30.6678 0.77152 30.8435 0.470664 31.1524C0.171814 31.4614 0.00825059 31.8793 0.0163251 32.3094V40.3779C0.014306 40.81 0.183926 41.2219 0.488834 41.5268C0.793743 41.8317 1.20768 42.0013 1.63984 41.9993H9.70299H9.70097C10.1351 42.0094 10.5551 41.8438 10.8661 41.5389C11.1771 41.2361 11.3507 40.8181 11.3507 40.384C11.3507 39.9498 11.1771 39.5339 10.8661 39.231C10.5551 38.9261 10.1351 38.7605 9.70097 38.7706H5.52915L15.6843 28.604C16.1548 28.1396 16.2962 27.4349 16.0377 26.8231C15.7813 26.2133 15.1755 25.8236 14.5152 25.8398L14.5146 25.8382Z"
+                  fill="white" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="main-slider__links">
+          <div class="main-slider__link main-slider__link_1" @click="viewPage('photos')"
+            :class="selectedPage('photos')"><img src="./images/blocks/main-slider/1.svg" alt="">Фотографії</div>
+          <div class="main-slider__link main-slider__link_2" @click="viewPage('video')" :class="selectedPage('video')">
+            <img src="./images/blocks/main-slider/2.svg" alt="">Відеоархів
+          </div>
+          <div class="main-slider__link main-slider__link_3" @click="viewPage('art')" :class="selectedPage('art')"><img
+              src="./images/blocks/main-slider/3.svg" alt="">Арт-ілюстрація</div>
+        </div>
+      </div>
+      <div class="virsh">
+        <p class="paragraph">Страшні слова, коли вони мовчать<br>
+          Страшні слова, коли вони мовчать,<br>
+          коли вони зненацька причаїлись,<br>
+          коли не знаєш, з чого їх почать,<br>
+          бо всі слова були уже чиїмись.<br>
+          <br>
+          Хтось ними плакав, мучивсь, болів,<br>
+          із них почав і ними ж і завершив.<br>
+          Людей мільярди і мільярди слів,<br>
+          а ти їх маєш вимовити вперше!<br>
+          <br>
+          Все повторялось: і краса, й потворність.<br>
+          Усе було: асфальти й спориші.<br>
+          Поезія – це завжди неповторність,<br>
+          якийсь безсмертний дотик до душі.<br>
+        </p><a class="button" href="#">Придбати листівку за донат
+          <div class="button__bg">
+            <div></div>
+          </div>
+        </a>
+      </div>
+      <div class="history">
+        <h2 class="h2">Історія</h2>
+        <div class="quote">
+          <p>«Якщо ти думаєш, що це обійде тебе стороною, я тебе засмучу, Маріупольці теж так думали...»</p><span>Олена,
+            м. Рівне</span>
+        </div>
+        <p class="paragraph">Мене звати Олена Середа, я жила в місті Маріуполь, я не розповідатиму своєї сльозливої
+          ​​історії, бо таких тисячі, користуючись можливістю щось донести до світової спільноти, я як вагітна дружина
+          військового, що втратила будинок, скажу одне!</p>
+        <p class="paragraph">Якщо зараз увесь світ не згуртується проти агресора, можливо, завтра твоя дружина
+          прокинеться з жахом о п'ятій ранку від вибухів і проведе свою вагітність одна, поза домом, без сім'ї та
+          близьких, щодня благаючи долю, щоб її чоловік вижив. Якщо ти думаєш, що це обійде тебе, я тебе засмучу,
+          Маріупольці теж так думали.</p>
+      </div>
+      <div class="team">
+        <h4 class="h4">Команда авторів фотографій м. Рівне:</h4>
+        <p class="paragraph">Команда волонтерів, організатор <a href="#">@weddingromantic</a> <br>
+          Модель <a href="#">@eelena_sereda</a> <br>
+          Фотограф, Фотостудія <a href="#">@viktoriia_yanchuk.ph</a> <br>
+          Відео контент <a href="#">@liza_biloschuk</a> <br>
+          Флорист <a href="#">@lafleurrivne </a> <br>
+          Візажист та зачіска <a href="#">@makeup.sokolova.kate</a> <br>
+        </p>
+        <div class="team__row"> <span>Добро сильніше в єдності</span><a class="button" href="#">ДОПОМОГТИ
+            <div class="button__bg">
+              <div></div>
+            </div>
+          </a></div>
+      </div>
+    </div>
+    <div class="big-team">
+      <div class="container big-team__wrapper">
+        <h2 class="h2">Команда волонтерів</h2>
+        <p class="paragraph paragraph_big"><b>Наша місія - </b>далі буде рандомний текст бо місію я не знаю. Але я
+          повинен пояснити вам, як народилася вся ця помилкова ідея про засудження задоволення і хвалу болю, і я дам вам
+          повний опис системи та викладу фактичні вчення великого дослідника істини, майстер-будівельник людського
+          щастя.</p>
+        <div class="big-team__slider-wrapper">
+          <div class="big-team__next" id="big-team__next"><svg width="21" height="34" viewBox="0 0 21 34" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M20.371 30.4081L5.7941 17.0476L20.371 3.59511C22.3729 1.80302 19.132 -1.24704 17.1302 0.545054L0.551042 15.7893C-0.11729 16.4183 -0.211869 17.5814 0.456462 18.2104L17.13 33.4546C19.1319 35.2467 22.3695 32.1996 20.3708 30.4046L20.371 30.4081Z"
+                fill="#BFCBDA" />
+            </svg></div>
+          <div class="big-team__prev" id="big-team__prev"><svg width="21" height="34" viewBox="0 0 21 34" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M0.629031 3.59187L15.2059 16.9524L0.629031 30.4049C-1.37285 32.197 1.86801 35.247 3.86981 33.4549L20.449 18.2107C21.1173 17.5817 21.2119 16.4186 20.5435 15.7896L3.86996 0.545372C1.86808 -1.24672 -1.36955 1.80038 0.629185 3.59544L0.629031 3.59187Z"
+                fill="#BFCBDA" />
+            </svg></div>
+          <div class="swiper big-team__slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="big-team__img-wrap">
+                  <picture>
+                    <source srcset="./images/blocks/big-team/e.webp" type="image/webp"><img class="big-team__img"
+                      src="./images/blocks/big-team/e.jpg" alt="">
+                  </picture>
+                  <div class="big-team__icon">
+                    <picture>
+                      <source srcset="./images/blocks/big-team/icon.webp" type="image/webp"><img
+                        src="./images/blocks/big-team/icon.png" alt="">
+                    </picture>
+                  </div>
+                </div>
+                <h3>Призвище Ім’я</h3>
+                <p>Співвласниця/CEO,</p>
+              </div>
+              <div class="swiper-slide">
+                <div class="big-team__img-wrap">
+                  <picture>
+                    <source srcset="./images/blocks/big-team/e.webp" type="image/webp"><img class="big-team__img"
+                      src="./images/blocks/big-team/e.jpg" alt="">
+                  </picture>
+                  <div class="big-team__icon">
+                    <picture>
+                      <source srcset="./images/blocks/big-team/icon.webp" type="image/webp"><img
+                        src="./images/blocks/big-team/icon.png" alt="">
+                    </picture>
+                  </div>
+                </div>
+                <h3>Довге Призвище Довге Ім’я</h3>
+                <p>Співвласниця/CEO</p>
+              </div>
+              <div class="swiper-slide">
+                <div class="big-team__img-wrap">
+                  <picture>
+                    <source srcset="./images/blocks/big-team/e.webp" type="image/webp"><img class="big-team__img"
+                      src="./images/blocks/big-team/e.jpg" alt="">
+                  </picture>
+                  <div class="big-team__icon">
+                    <picture>
+                      <source srcset="./images/blocks/big-team/icon.webp" type="image/webp"><img
+                        src="./images/blocks/big-team/icon.png" alt="">
+                    </picture>
+                  </div>
+                </div>
+                <h3>Призвище Ім’я</h3>
+                <p>Співвласниця/CEO</p>
+              </div>
+              <div class="swiper-slide">
+                <div class="big-team__img-wrap">
+                  <picture>
+                    <source srcset="./images/blocks/big-team/e.webp" type="image/webp"><img class="big-team__img"
+                      src="./images/blocks/big-team/e.jpg" alt="">
+                  </picture>
+                  <div class="big-team__icon">
+                    <picture>
+                      <source srcset="./images/blocks/big-team/icon.webp" type="image/webp"><img
+                        src="./images/blocks/big-team/icon.png" alt="">
+                    </picture>
+                  </div>
+                </div>
+                <h3>Довге Призвище Довге Ім’я</h3>
+                <p>Співвласниця/CEO</p>
+              </div>
+              <div class="swiper-slide">
+                <div class="big-team__img-wrap">
+                  <picture>
+                    <source srcset="./images/blocks/big-team/e.webp" type="image/webp"><img class="big-team__img"
+                      src="./images/blocks/big-team/e.jpg" alt="">
+                  </picture>
+                  <div class="big-team__icon">
+                    <picture>
+                      <source srcset="./images/blocks/big-team/icon.webp" type="image/webp"><img
+                        src="./images/blocks/big-team/icon.png" alt="">
+                    </picture>
+                  </div>
+                </div>
+                <h3>Призвище Ім’я</h3>
+                <p>Співвласниця/CEO</p>
+              </div>
+              <div class="swiper-slide">
+                <div class="big-team__img-wrap">
+                  <picture>
+                    <source srcset="./images/blocks/big-team/e.webp" type="image/webp"><img class="big-team__img"
+                      src="./images/blocks/big-team/e.jpg" alt="">
+                  </picture>
+                  <div class="big-team__icon">
+                    <picture>
+                      <source srcset="./images/blocks/big-team/icon.webp" type="image/webp"><img
+                        src="./images/blocks/big-team/icon.png" alt="">
+                    </picture>
+                  </div>
+                </div>
+                <h3>Призвище Ім’я</h3>
+                <p>Співвласниця/CEO</p>
+              </div>
+              <div class="swiper-slide">
+                <div class="big-team__img-wrap">
+                  <picture>
+                    <source srcset="./images/blocks/big-team/e.webp" type="image/webp"><img class="big-team__img"
+                      src="./images/blocks/big-team/e.jpg" alt="">
+                  </picture>
+                  <div class="big-team__icon">
+                    <picture>
+                      <source srcset="./images/blocks/big-team/icon.webp" type="image/webp"><img
+                        src="./images/blocks/big-team/icon.png" alt="">
+                    </picture>
+                  </div>
+                </div>
+                <h3>Призвище Ім’я</h3>
+                <p>Співвласниця/CEO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Попапы с видео и артом-->
+    <transition name="modal">
+      <div class="modal" v-if="art" @click="bigView = false">
+        <picture>
+          <source srcset="./images/blocks/modal/img-big.webp" type="image/webp"><img
+            src="./images/blocks/modal/img-big.jpg" alt="" @click.stop="">
+        </picture>
+        <div class="modal__close" @click="bigView = false"><img src="./images/blocks/super-slider/close.svg" alt="">
+        </div>
+      </div>
+      <div class="modal" v-if="video" @click="bigView = false">
+        <!-- Гитхаб библиотеки для видео: https://github.com/sampotts/plyr-->
+        <div class="plyr__video-embed" id="player" @click.stop="">
+          <iframe
+            src="https://www.youtube.com/embed/bTqVqk7FSmY?origin=https://plyr.io&amp;amp;iv_load_policy=3&amp;amp;modestbranding=1&amp;amp;playsinline=1&amp;amp;showinfo=0&amp;amp;rel=0&amp;amp;enablejsapi=1"
+            allowfullscreen allowtransparency allow="autoplay"></iframe>
+        </div>
+        <!--
+          <video id="player" playsinline controls data-poster="/path/to/poster.jpg">
+            <source src="./video/vid.mp4" type="video/mp4" />
+          </video>
+          -->
+        <div class="modal__close" @click="bigView = false"><img src="./images/blocks/super-slider/close.svg" alt="">
+        </div>
+      </div>
+    </transition>
+    <!-- !!! Содержимое как в первом слайдере, но можно не обрезать фото до квадрата-->
+    <div class="super-slider">
+      <div class="super-slider__close"> <img src="./images/blocks/super-slider/close.svg" alt=""></div>
+      <div class="slider-wrapper">
+        <div class="swiper super-slider__slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./images/blocks/super-slider/photo_2022-05-25_19-42-33.webp" type="image/webp"><img
+                  src="./images/blocks/super-slider/photo_2022-05-25_19-42-33.jpg" alt="">
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./images/blocks/super-slider/photo_2022-05-25_19-42-37.webp" type="image/webp"><img
+                  src="./images/blocks/super-slider/photo_2022-05-25_19-42-37.jpg" alt="">
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./images/blocks/super-slider/photo_2022-05-25_19-42-41.webp" type="image/webp"><img
+                  src="./images/blocks/super-slider/photo_2022-05-25_19-42-41.jpg" alt="">
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./images/blocks/super-slider/photo_2022-05-25_19-42-50.webp" type="image/webp"><img
+                  src="./images/blocks/super-slider/photo_2022-05-25_19-42-50.jpg" alt="">
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./images/blocks/super-slider/photo_2022-06-12_23-23-59.webp" type="image/webp"><img
+                  src="./images/blocks/super-slider/photo_2022-06-12_23-23-59.jpg" alt="">
+              </picture>
+            </div>
+          </div>
+          <div class="swiper-button-next super-slider__next"></div>
+          <div class="swiper-button-prev super-slider__prev"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__wrapper">
+        <div class="footer__col">
+          <div class="footer__img">
+            <picture>
+              <source srcset="./images/blocks/footer/1.webp" type="image/webp"><img src="./images/blocks/footer/1.png"
+                alt="">
+            </picture>
+          </div><a href="#">ЗВІТИ</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__img">
+            <picture>
+              <source srcset="./images/blocks/footer/2.webp" type="image/webp"><img src="./images/blocks/footer/2.png"
+                alt="">
+            </picture>
+          </div><a href="#">КОНТАКТИ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./vendor/vue/vue.min.js"> </script>
+  <link rel="stylesheet" href="./vendor/swiper/swiper-bundle.min.css">
+  <script src="./vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="./bundles/app.min.js"></script>
+</body>
+
+</html>
